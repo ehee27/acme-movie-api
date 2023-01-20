@@ -7,21 +7,21 @@ jobs:
     working_directory: ~/repo # In which directory to run the steps. Will be interpreted as an absolute path.
     docker: # to use a circle ci pre-built docker file
       - image: cimg/node:16.15.0 # name of the image to run --> note js version 16.15.0
-      environment: 
-        TEST_DATABASE_URL : postgresql: //postgres@localhost/circle_test
+    environment:
+      DATABASE_URL: postgresql://postgres@localhost/circle_test
     steps:
-            - checkout
-            - run:
-                  name: Install Dependencies
-                  command: npm install
-            - run: sudo apt-get update
-            - run: sudo apt-get install postgresql-client
-            - run:
-                  name: Add database for postgres
-                  command: psql -U postgres -h localhost -p 5432 -c "create database acme-movie-api;"
-            - run:
-                  name: Run Tests
-                  command: npm run test
+      - checkout
+      - run:
+          name: Install Dependencies
+          command: npm install
+      - run: sudo apt-get update
+      - run: sudo apt-get install postgresql-client
+      - run:
+          name: Add database for postgres
+          command: psql -U postgres -h localhost -p 5432 -c "create database acme-movie-api;"
+      - run:
+          name: Run Tests
+          command: npm run test
 
 workflows: # used for orchestrating all jobs
   version: 2.1
