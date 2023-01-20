@@ -8,3 +8,9 @@ describe('name', () => {
     expect(typeof name).to.equal('string');
   });
 });
+
+describe('name', () => {
+  it('is ten chars', () => {
+    expect(name2.length).to.equal(10);
+  });
+});
