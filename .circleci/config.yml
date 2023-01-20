@@ -19,7 +19,7 @@ jobs:
       - run: sudo apt-get install postgresql-client
       - run:
           name: Add database for postgres
-          command: psql -U postgres -h localhost -p 5432 -c "create database acme-movie-api;"
+          command: psql -U postgres -h localhost -p 5432 -c "create database acme_movie_api;"
       - run:
           name: Run Tests
           command: npm run test
