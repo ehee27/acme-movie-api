@@ -12,11 +12,11 @@ jobs:
           POSTGRES_DB: acme_movie_api
           POSTGRES_USER: postgres
       - image: cimg/postgres:14.0
-          environment:
-            POSTGRES_USER: postgres
-          auth:
-            username: mydockerhub-user
-            password: $DOCKERHUB_PASSWORD
+        environment:
+          POSTGRES_USER: postgres
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD
     steps:
       - checkout
       - run:
