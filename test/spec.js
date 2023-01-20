@@ -1,9 +1,14 @@
 const { expect } = require('chai');
 const app = require('../app');
 const supertest = require('supertest');
+const { syncAndSeed } = require('../db');
 
 const name = 'scott lucas';
 const name2 = 'antonia b.';
+
+beforeEach(async () => {
+  await syncAndSeed();
+});
 
 describe('name', () => {
   it('is a string', () => {
