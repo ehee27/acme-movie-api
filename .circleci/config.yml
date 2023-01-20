@@ -8,8 +8,8 @@ jobs:
     docker: # to use a circle ci pre-built docker file
       - image: cimg/node:16.15.0 # name of the image to run --> note js version 16.15.0
     environment:
-      DATABASE_URL: postgresql://postgres@localhost/acme-movie-api
-      POSTGRES_DB: acme-movie-api
+      DATABASE_URL: postgresql://postgres@localhost/acme_movie_api
+      POSTGRES_DB: acme_movie_api
     steps:
       - checkout
       - run:
