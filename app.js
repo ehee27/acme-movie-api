@@ -1,4 +1,5 @@
 const express = require('express');
+// const {syncAndSeed} = require('./db')
 const app = express();
 
 app.get('/', (req, res, next) => {
