@@ -7,9 +7,16 @@ jobs:
     working_directory: ~/repo # In which directory to run the steps. Will be interpreted as an absolute path.
     docker: # to use a circle ci pre-built docker file
       - image: cimg/node:16.15.0 # name of the image to run --> note js version 16.15.0
-    environment:
-      DATABASE_URL: postgresql://postgres@localhost/acme_movie_api
-      POSTGRES_DB: acme_movie_api
+        environment:
+          DATABASE_URL: postgresql://postgres@localhost/acme_movie_api
+          POSTGRES_DB: acme_movie_api
+          POSTGRES_USER: postgres
+      - image: cimg/postgres:14.0
+          environment:
+            POSTGRES_USER: postgres
+          auth:
+            username: mydockerhub-user
+            password: $DOCKERHUB_PASSWORD
     steps:
       - checkout
       - run:
