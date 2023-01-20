@@ -1,9 +1,9 @@
 const express = require('express');
-const app = express;
+const app = express();
 
 app.get('/', (req, res, next) => {
   try {
-    res.send('status good!');
+    res.send('status good!').status(200);
   } catch (error) {
     next(error);
   }
@@ -17,5 +17,7 @@ const init = async () => {
     console.log(error);
   }
 };
+
+init();
 
 module.exports = app;
